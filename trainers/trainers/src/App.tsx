@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      <Container>
+      {/* <Container>
         <Toolbar>
           <Typography>
 
@@ -21,7 +21,8 @@ function App() {
             <CustomersListed />
           </Typography>
         </Toolbar>
-      </Container>
+      </Container> */}
+      <CustomersListed/>
     </>
   )
 }
