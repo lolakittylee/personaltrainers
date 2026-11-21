@@ -1,14 +1,14 @@
+import { Typography } from "@mui/material";
+
 function CustomersListed() {
 
     return(
         <>
-        <h1>All customers listed below</h1>
+        <Typography variant="h1">Customers?</Typography>
 
-        <tbody>
-        
-        </tbody>
-        
         </>
     )
 }
+
+export default CustomersListed;
 
