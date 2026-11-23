@@ -13,11 +13,25 @@ function CustomersListed() {
 
     const [customers, setCustomers] = useState<Customer[]>([]);
 
+    const handleAdd = () => {
+        if (!customer.name) {
+            alert("Please fill in your name")
+            return;
+        }
+
+        setCustomers([customer, ...customers]);
+        setNewCustomer({
+            id: "",
+            name: "",
+            details: ""
+        })
+    }
 
     return (
         <>
             <div>
-                <Typography variant="h1">Customers?</Typography>
+                <Typography variant="h1">Personal trainer</Typography>
+                <Typography variant="h4">All customer's listed below:</Typography>
                 <Stack
                     direction={"row"}
                     spacing={2}
@@ -45,24 +59,27 @@ function CustomersListed() {
                 </Stack>
             </div>
 
-                        <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Feedback</th>
-                    </tr>
-                </thead>
+            <div>
 
-                <tbody>
-                    {customers.map((feedbackRow: Customer, index)=>
-                    
-                    <tr key = {index}>
-                        <td>{feedbackRow.name}</td>
-                        <td>{feedbackRow.details}</td>
-                    </tr>
-                    )}
-                </tbody>
-            </table>
+
+                <input
+                    placeholder="Enter your name..."
+                    title="Name"
+                    value={customer.name}
+                    onChange={event =>
+                        setNewCustomer({ ...customer, name: event.target.value })}
+                />
+
+                <textarea
+                    placeholder="Enter important details"
+                    title="Details"
+                    value={customer.details}
+                    onChange={event =>
+                        setNewCustomer({ ...customer, details: event.target.value })}
+                />
+
+                <button onClick={handleAdd}>Send</button>
+            </div>
         </>
     )
 }
