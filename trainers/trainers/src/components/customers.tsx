@@ -1,69 +1,38 @@
 import { Stack, TextField, Typography } from "@mui/material";
 import type { Customer } from "../types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getCustomers } from "../trainerapi";
+import type { GridColDef } from "@mui/x-data-grid";
 
 
 
 function CustomersListed() {
     const [customers, setCustomers] = useState<Customer[]>([]);
+    // const [open, setOpen] = useState(false);
 
 const columns: GridColDef[] = [
-    {field: 'name', headeName: 'Name', width: 200},
-    {field: 'details', header}
+    {field: 'firstname', headerName: 'First name', width: 200},
+    {field: 'lastname', headerName: 'Last name', width: 200}
 ]
+
+const fetchCustomers = () => {
+    getCustomers()
+        .then(data => setCustomers(data._embedded.customers))
+        .catch(err => console.error(err))
+}
+
+useEffect(() => {
+    fetchCustomers()},
+[])
 
     return (
         <>
             <div>
-                <Typography variant="h1">Personal trainer</Typography>
-                <Typography variant="h4">All customer's listed below:</Typography>
-                <Stack
-                    direction={"row"}
-                    spacing={2}
-                    sx={{
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        marginTop: '20px'
-                    }}>
-
-
-                    <TextField
-                        label="Name"
-                        value={customer.name}
-                        onChange={event =>
-                            setNewCustomer({ ...customer, name: event.target.value })
-                        }
-                    />
-                    <TextField
-                        label="Details"
-                        value={customer.details}
-                        onChange={event =>
-                            setNewCustomer({ ...customer, details: event.target.value })
-                        }
-                    />
-                </Stack>
+        
             </div>
 
             <div>
 
-
-                <input
-                    placeholder="Enter your name..."
-                    title="Name"
-                    value={customer.name}
-                    onChange={event =>
-                        setNewCustomer({ ...customer, name: event.target.value })}
-                />
-
-                <textarea
-                    placeholder="Enter important details"
-                    title="Details"
-                    value={customer.details}
-                    onChange={event =>
-                        setNewCustomer({ ...customer, details: event.target.value })}
-                />
-
-                <button onClick={handleAdd}>Send</button>
             </div>
         </>
     )
