@@ -1,4 +1,3 @@
-
 import type { Trainings } from "../types";
 import { useEffect, useState } from "react";
 import { getTrainings } from "../trainerapi";
@@ -11,12 +10,13 @@ function TrainingsListed() {
     // const [open, setOpen] = useState(false);
 
     const columns: GridColDef[] = [
-        { field: 'activity', headerName: 'First name', width: 200 }
+        {field: 'date', headerName: 'Date', width: 200},
+        { field: 'activity', headerName: 'Activity', width: 200 }
     ]
 
     const fetchTrainings = () => {
         getTrainings()
-            .then(data => setTrainings(data._embedded.customers))
+            .then(data => setTrainings(data._embedded.trainings))
             .catch(err => console.error(err))
     }
 
