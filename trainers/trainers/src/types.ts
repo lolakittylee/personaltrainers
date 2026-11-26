@@ -20,7 +20,7 @@ export type Customer = {
     }
 }
 
-export type Trainings = {
+export type Training = {
     date: Date;
     duration: number;
     activity: string;

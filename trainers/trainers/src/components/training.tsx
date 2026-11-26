@@ -1,4 +1,4 @@
-import type { Trainings } from "../types";
+import type { Training } from "../types";
 import { useEffect, useState } from "react";
 import { getTrainings } from "../trainerapi";
 import { DataGrid, type GridColDef } from "@mui/x-data-grid";
@@ -6,11 +6,11 @@ import { DataGrid, type GridColDef } from "@mui/x-data-grid";
 
 
 function TrainingsListed() {
-    const [trainings, setTrainings] = useState<Trainings[] | null>([]);
+    const [trainings, setTrainings] = useState<Training[] | null>([]);
     // const [open, setOpen] = useState(false);
 
     const columns: GridColDef[] = [
-        {field: 'date', headerName: 'Date', width: 200},
+        {field: 'date', headerName: 'Date', width: 300},
         { field: 'activity', headerName: 'Activity', width: 200 }
     ]
 

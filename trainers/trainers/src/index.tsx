@@ -22,8 +22,8 @@ const router = createBrowserRouter([
     //     index: true                 
     //   },
       {
-        path: "newCustomer",                
-        element: <NewCustomer />,
+        path: "trainings",                
+        element: <TrainingsListed />,
       },
     //   {
     //     path: "statistics",
