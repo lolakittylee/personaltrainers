@@ -1,4 +1,4 @@
-import { Stack, TextField, Typography } from "@mui/material";
+
 import type { Customer } from "../types";
 import { useEffect, useState } from "react";
 import { getCustomers } from "../trainerapi";

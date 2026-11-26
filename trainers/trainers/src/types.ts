@@ -20,7 +20,20 @@ export type Customer = {
     }
 }
 
-// export type Trainings = {
-
-// }
+export type Trainings = {
+    date: Date;
+    duration: number;
+    activity: string;
+    _links: {
+        self: {
+            href: string
+        },
+        training: {
+            href: string
+        },
+        customers: {
+            href: string
+        }
+    }
+}
 
