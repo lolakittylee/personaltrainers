@@ -11,18 +11,12 @@ function App() {
 
   return (
     <>
-      {/* <Container>
+      <Container maxWidth="lg">
         <Toolbar>
-          <Typography>
-
-            <nav>
-              <Link to={"/newCustomer"}> New customer</Link>
-            </nav>
-            <CustomersListed />
-          </Typography>
+          <Typography variant='h6'> Customers </Typography>
         </Toolbar>
-      </Container> */}
-      <CustomersListed/>
+        <CustomersListed/>
+      </Container>
     </>
   )
 }

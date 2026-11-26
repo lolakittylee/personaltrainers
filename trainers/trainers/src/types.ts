@@ -1,5 +1,5 @@
 export type Customer = {
-    id: string;
+    // id: string;
     firstname: string;
     lastname: string;
     streetaddress: string;
@@ -11,7 +11,7 @@ export type Customer = {
         self: {
             href: string
         },
-        customer: {
+        customers: {
             href: string
         },
         trainings: {
@@ -20,7 +20,7 @@ export type Customer = {
     }
 }
 
-export type Trainings = {
-    
-}
+// export type Trainings = {
+
+// }
 
