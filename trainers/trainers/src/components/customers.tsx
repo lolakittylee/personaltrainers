@@ -5,27 +5,12 @@ import { useState } from "react";
 
 
 function CustomersListed() {
-    const [customer, setNewCustomer] = useState<Customer>({
-        id: "",
-        name: "",
-        details: ""
-    });
-
     const [customers, setCustomers] = useState<Customer[]>([]);
 
-    const handleAdd = () => {
-        if (!customer.name) {
-            alert("Please fill in your name")
-            return;
-        }
-
-        setCustomers([customer, ...customers]);
-        setNewCustomer({
-            id: "",
-            name: "",
-            details: ""
-        })
-    }
+const columns: GridColDef[] = [
+    {field: 'name', headeName: 'Name', width: 200},
+    {field: 'details', header}
+]
 
     return (
         <>
