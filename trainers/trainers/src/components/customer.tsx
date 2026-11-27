@@ -19,8 +19,8 @@ function CustomerIndividual() {
         if (!id) return;
 
         getCustomerById(id)
-            .then(customer => setCustomerInfos(customer))
-            .catch(error => console.error(error));
+            .then(customer => setCustomerInfos([customer]))
+            .catch(err => console.error(err));
 
     }, [id]);
 
@@ -34,16 +34,6 @@ function CustomerIndividual() {
         { field: 'phone', headerName: 'Phone number', width: 150 },
 
     ]
-
-    const fetchCustomerInfo = () => {
-        getCustomerById()
-            .then(data => setCustomerInfos([customer]))
-            .catch(err => console.error(err));
-    }
-
-    useEffect(() => {
-        fetchCustomerInfo();
-    }, [])
 
 
     return (
