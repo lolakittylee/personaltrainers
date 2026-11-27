@@ -1,7 +1,7 @@
 
 import type { Customer } from "../types";
 import { useEffect, useState } from "react";
-import { getCustomers, getTrainings } from "../trainerapi";
+import { getCustomers} from "../trainerapi";
 import { DataGrid, type GridColDef } from "@mui/x-data-grid";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router";
@@ -11,7 +11,7 @@ import { useNavigate } from "react-router";
 function CustomersListed() {
     const [customers, setCustomers] = useState<Customer[] | null>([]);
     // const [open, setOpen] = useState(false);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const columns: GridColDef[] = [
         { field: 'firstname', headerName: 'First name', width: 200 },
@@ -38,9 +38,10 @@ function CustomersListed() {
                     getRowId={row => row._links.self.href}
                 />
             </div>
-            {/* <div>
-                <Button variant='contained' navigate='/trainings'>Trainings</Button>
-            </div> */}
+
+            <div>
+                <Button variant="contained" onClick={() => navigate("/trainings")}>Trainings</Button>
+            </div>
         </>
     );
 }
