@@ -30,7 +30,6 @@ function CustomersListed() {
                         }}>Details</Button>
                 </>
         }
-
     ]
 
     const fetchCustomers = () => {
@@ -45,7 +44,7 @@ function CustomersListed() {
 
     return (
         <>
-            <div style={{ width: '90%', height: 500, marginTop: 10 }}>
+            <div style={{ width: '100%', height: 700, marginTop: 10 }}>
                 <DataGrid
                     rows={customers || []}
                     columns={columns}
@@ -55,7 +54,7 @@ function CustomersListed() {
             </div>
 
             <div>
-                <Button variant="contained" onClick={() => navigate("/trainings")}>Trainings</Button>
+                <Button variant="contained" onClick={() => navigate("/gettrainings")}>Trainings</Button>
             </div>
         </>
     );

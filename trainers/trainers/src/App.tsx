@@ -22,7 +22,7 @@ function App() {
           <Route path='/' element={<CustomersListed/>}/>
           <Route path='/customers' element={<CustomersListed/>}/>
           <Route path="/customers/:id" element={<CustomerIndividual/>} />
-          <Route path='/trainings' element={<TrainingsListed/>}/>
+          <Route path='/gettrainings' element={<TrainingsListed/>}/>
         </Routes>
       </Container>
     </BrowserRouter>

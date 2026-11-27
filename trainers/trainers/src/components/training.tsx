@@ -13,8 +13,12 @@ function TrainingsListed() {
     const navigate = useNavigate();
 
     const columns: GridColDef[] = [
+        { field: 'customerName', headerName: 'Customer', width: 200,
+            valueGetter: (_value, row: Training) =>
+                `${row.customer.firstname} ${row.customer.lastname}`
+         },
         { field: 'activity', headerName: 'Activity', width: 200 },
-        {field: 'date', headerName: 'Date', width: 300,
+        { field: 'date', headerName: 'Date', width: 300,
             valueFormatter: (value) => {
                 if(!value) {
                     return ' ';
@@ -26,7 +30,7 @@ function TrainingsListed() {
 
     const fetchTrainings = () => {
         getTrainings()
-            .then(data => setTrainings(data._embedded.trainings))
+            .then(data => setTrainings(data))
             .catch(err => console.error(err))
     }
 
@@ -36,12 +40,12 @@ function TrainingsListed() {
 
     return (
         <>
-            <div style={{ width: '90%', height: 500, marginTop: 10 }}>
+            <div style={{ width: '100%', height: 500, marginTop: 10 }}>
                 <DataGrid
                     rows={trainings || []}
                     columns={columns}
                     autoPageSize
-                    getRowId={row => row._links.self.href}
+                    getRowId={row => row.id}
                 />
             </div>
             
