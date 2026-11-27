@@ -23,7 +23,11 @@ function CustomersListed() {
             field: '', headerName: '', flex: 1,
             renderCell: (params) =>
                 <>
-                    <Button variant="text" onClick={() => navigate(`/customers/${params.row.id}`)}>Details</Button>
+                    <Button variant="text" 
+                    onClick={() => {
+                        const id = params.row._links.self.href.split("/").pop();
+                        if (id) navigate(`/customers/${id}`);
+                        }}>Details</Button>
                 </>
         }
 

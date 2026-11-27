@@ -20,6 +20,7 @@ function App() {
         </AppBar>
         <Routes>
           <Route path='/' element={<CustomersListed/>}/>
+          <Route path='/customers' element={<CustomersListed/>}/>
           <Route path="/customers/:id" element={<CustomerIndividual/>} />
           <Route path='/trainings' element={<TrainingsListed/>}/>
         </Routes>

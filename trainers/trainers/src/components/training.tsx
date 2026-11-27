@@ -13,8 +13,15 @@ function TrainingsListed() {
     const navigate = useNavigate();
 
     const columns: GridColDef[] = [
-        {field: 'date', headerName: 'Date', width: 300},
-        { field: 'activity', headerName: 'Activity', width: 200 }
+        { field: 'activity', headerName: 'Activity', width: 200 },
+        {field: 'date', headerName: 'Date', width: 300,
+            valueFormatter: (value) => {
+                if(!value) {
+                    return ' ';
+                }
+                return new Date(value).toLocaleString('en-GB');
+            } 
+        }
     ]
 
     const fetchTrainings = () => {
@@ -36,7 +43,6 @@ function TrainingsListed() {
                     autoPageSize
                     getRowId={row => row._links.self.href}
                 />
-                
             </div>
             
             <div>

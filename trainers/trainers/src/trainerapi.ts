@@ -9,6 +9,19 @@ export function getCustomers() {
         })
 }
 
+export function getCustomerInfos() {
+    return fetch (`${import.meta.env.VITE_API_URL}/customers/${id}`)
+        .then(response => {
+            if(!response.ok) {
+                throw new Error("Error when fetching customer details.")
+            }
+
+            return response.json();
+        })
+}
+
+
+
 export function getTrainings(){
     return fetch(import.meta.env.VITE_API_URL + "/trainings")
         .then(response => {
@@ -21,7 +34,7 @@ export function getTrainings(){
 }
 
 export function getCustomerById(id: number | string) {
-    return fetch(`${import.meta.env.VITE_API_URL}/api/customers/${id}`)
+    return fetch(`${import.meta.env.VITE_API_URL}/customers/${id}`)
         .then(response => {
             if (!response.ok) throw new Error("Error when fetching customer data");
             return response.json();
@@ -29,7 +42,7 @@ export function getCustomerById(id: number | string) {
 }
 
 export function getTrainingById(id: number | string) {
-    return fetch(`${import.meta.env.VITE_API_URL}/api/trainings/${id}`)
+    return fetch(`${import.meta.env.VITE_API_URL}/trainings/${id}`)
         .then(response => {
             if (!response.ok) throw new Error("Error when fetching training data");
             return response.json();
