@@ -1,21 +1,32 @@
 
 import type { Customer } from "../types";
 import { useEffect, useState } from "react";
-import { getCustomers} from "../trainerapi";
+import { getCustomers } from "../trainerapi";
 import { DataGrid, type GridColDef } from "@mui/x-data-grid";
 import { Button } from "@mui/material";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 
 
 function CustomersListed() {
+    const { id } = useParams();
     const [customers, setCustomers] = useState<Customer[] | null>([]);
     // const [open, setOpen] = useState(false);
     const navigate = useNavigate();
 
+
+
     const columns: GridColDef[] = [
+        { field: 'lastname', headerName: 'Last name', width: 200 },
         { field: 'firstname', headerName: 'First name', width: 200 },
-        { field: 'lastname', headerName: 'Last name', width: 200 }
+        {
+            field: '', headerName: '', flex: 1,
+            renderCell: (params) =>
+                <>
+                    <Button variant="text" onClick={() => navigate(`/customers/${params.row.id}`)}>Details</Button>
+                </>
+        }
+
     ]
 
     const fetchCustomers = () => {

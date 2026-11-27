@@ -1,5 +1,5 @@
 export type Customer = {
-    // id: string;
+    id: number;
     firstname: string;
     lastname: string;
     streetaddress: string;
@@ -21,6 +21,7 @@ export type Customer = {
 }
 
 export type Training = {
+    id:number;
     date: Date;
     duration: number;
     activity: string;
